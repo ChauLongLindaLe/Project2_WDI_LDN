@@ -1,0 +1,28 @@
+Arguments: 
+  /Users/linda/.nvm/versions/node/v9.4.0/bin/node /usr/local/Cellar/yarn/1.6.0/libexec/bin/yarn.js add express
+
+PATH: 
+  /Users/linda/.nvm/versions/node/v9.4.0/bin:/Users/linda/bin:/usr/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+
+Yarn version: 
+  1.6.0
+
+Node version: 
+  9.4.0
+
+Platform: 
+  darwin x64
+
+Trace: 
+  Error: getaddrinfo ENOTFOUND registry.yarnpkg.com registry.yarnpkg.com:443
+      at errnoException (dns.js:55:10)
+      at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:97:26)
+
+npm manifest: 
+  No manifest
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
