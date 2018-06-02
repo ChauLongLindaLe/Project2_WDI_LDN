@@ -6,6 +6,10 @@
   "author": "Linda Le <linchowmein@hotmail.com>",
   "license": "MIT",
   "dependencies": {
-    "express": "^4.16.3"
+    "ejs": "^2.6.1",
+    "express": "^4.16.3",
+    "express-ejs-layouts": "^2.4.0",
+    "express-session": "^1.15.6",
+    "express-sessions": "^1.0.6"
   }
 }
