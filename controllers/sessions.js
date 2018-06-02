@@ -4,6 +4,7 @@ function newRoute(req, res){
   res.render('sessions/login');
 }
 
+//login authentication
 function createRoute(req, res) {
   User
     .findOne({email: req.body.email })
@@ -18,18 +19,11 @@ function createRoute(req, res) {
     });
 }
 
+
+//logout function - regenerate session cookie
 function deleteRoute(req, res){
   return req.session.regenerate(() => res.redirect('/'));
 }
-
-
-
-
-
-
-
-
-
 
 
 module.exports = {

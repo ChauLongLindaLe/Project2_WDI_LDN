@@ -20,10 +20,17 @@ router.route('/user/:id')
 router.route('/login')
   .get(sessions.new)
   .post(sessions.create);
+  
+//logout
+router.route('/logout')
+  .get(sessions.delete);
 
 router.route('/classes')
   .get(classes.index)
   .post(classes.create);
+
+
+
 
 router.route('/classes/new')
   .get(classes.new);
