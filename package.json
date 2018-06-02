@@ -1,0 +1,11 @@
+{
+  "name": "Project2_WDI_LDN",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:ChauLongLindaLe/Project2_WDI_LDN.git",
+  "author": "Linda Le <linchowmein@hotmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
+}
