@@ -38,14 +38,6 @@ router.route('classes/:id/edit')
 //Owner register
 //Owner Login
 
-//Controllers
-
-
-//Login
-
-
-
-//Routes
 
 
 
