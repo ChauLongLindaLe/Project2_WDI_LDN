@@ -3,6 +3,9 @@ const router        = express.Router();
 const users         = require('../controllers/users');
 const sessions      = require('../controllers/sessions');
 const classes      = require('../controllers/classes');
+//const comments
+
+//security
 
 // Listeners
 router.route('/')
@@ -20,7 +23,7 @@ router.route('/user/:id')
 router.route('/login')
   .get(sessions.new)
   .post(sessions.create);
-  
+
 //logout
 router.route('/logout')
   .get(sessions.delete);
