@@ -1,4 +1,4 @@
-const Class = require('../models/classes');
+const Class = require('../models/class.js');
 
 function classesIndex(req,res){
   Class
@@ -9,60 +9,64 @@ function classesIndex(req,res){
     });
 }
 
-//Index - lists of classes
 
 function classesShow(req,res){
   Class
     .findById(req.params.id)
-    .populate('comments.createdBy')
+    // .populate comments
     .exec()
-    .then(class => res.render('classes/show', {class}));
+    .then(classes => {
+      res.render('classes/show', {classes});
+    });
 }
 
 function classesNew(req,res){
+  if(!res.locals.isLoggedIn) return res.redirect('/');
   res.render('classes/new');
 }
 
+
 function classesCreate(req,res){
   Class
-  .create(req.body)
-  .then(() => res.redirect('/'));
+    .create(req.body)
+    .then(() => res.redirect('/'));
 }
 
 function classesEdit(req,res){
   Class
-  .findById(req.params.id)
-  .exec()
-  .then(class => res.render('classes/edit', {class}));
+    .findById(req.params.id)
+    .exec()
+    .then(classes => {
+      res.render('classes/edit', {classes});
+    });
 }
 
 
 function classesUpdate(req,res){
   Class
-  .findById(req.params.id)
-  .exec()
-  .then(class => {
-    class = Object.assign(class, req.body);
-    return class.save();
-  })
-  .then(class => res.redirect(`/class/${classes.id}`))
+    .findById(req.params.id)
+    .exec()
+    .then(classes => {
+      classes = Object.assign(classes, req.body);
+      return classes.save();
+    })
+    .then(classes =>  res.redirect(`/class/${classes.id}`));
 }
 
 
 function classesDelete(req,res){
   Class
-  .findById(req.params.id)
-  .exec()
-  .then(class => class.remove())
-  .then(() => res.redirect('/'));
+    .findById(req.params.id)
+    .exec()
+    .then(classes => {
+      classes.remove();
+      return res.redirect('/classes');
+    });
 }
 
 
 //function for comments
-//Show - restaurant description
-//Registration
-//Create and Delete classes
-// Add photos
+
 
 
 

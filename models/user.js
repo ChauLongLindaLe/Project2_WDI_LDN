@@ -13,6 +13,8 @@ const userSchema = new mongoose.Schema({
   timestamps: true
 });
 
+
+
 //Validate Password
 userSchema.methods.validatePassword = function(password){
   return bcrypt.compareSync(password, this.password);
@@ -24,14 +26,12 @@ userSchema
     if(this.isModified('password')){
       this.password = bcrypt.hashSync(this.password, bcrypt.genSaltSync(8));
     }
-
     next();
   });
 
 //Password Confirmation
 
-userSchema
-  .virtual('passwordConfirmation')
+userSchema.virtual('passwordConfirmation')
   .set(function setPasswordConfirmation(passwordConfirmation){
     this._passwordConfirmation = passwordConfirmation;
   });
@@ -39,13 +39,12 @@ userSchema
 
 //Validate Password
 
-userSchema
-  .pre('validate', function(next){
-    if(this.isModified('password') && this._passwordConfirmation !== this.password){
-      this.invalidate('password');
-    }
-    next();
-  });
+userSchema.pre('validate', function(next){
+  if(this.isModified('password') && this._passwordConfirmation !== this.password){
+    this.invalidate('password');
+  }
+  next();
+});
 
 
 module.exports = mongoose.model('User', userSchema);

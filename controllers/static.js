@@ -1,10 +1,11 @@
-const User = require('../models/user');
+const User = require('../models/user.js');
 
 function indexRoute(req, res) {
   User
     .find()
     .exec()
-    .then((users) => res.render('index', { users }));
+    .then((users) =>
+      res.render('index', { users }));
 }
 
 module.exports = {
