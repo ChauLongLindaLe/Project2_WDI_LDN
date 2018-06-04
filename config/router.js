@@ -7,7 +7,7 @@ const classes       = require('../controllers/classes');
 
 //security
 
-// Listeners
+// handles requestss
 router.route('/')
   .get(classes.index);
 
