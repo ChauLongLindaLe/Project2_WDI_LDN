@@ -1,0 +1,25 @@
+<main class="container">
+  <div class="columns is-multiline">
+    <% venues.forEach(venue => { %>
+      <div class="column is-one-quarter-desktop is-half-tablet">
+      <a href="/venues/<%= venue._id %>">
+        <div class="card">
+          <div class="card-image">
+            <figure class="image is-2by1">
+              <img class="venueImage" src="<%= venue.image %>" alt="<%= venue.venueName %>">
+            </figure>
+          </div>
+          <div class="card-content">
+          <div class="columns">
+          <div class="column">
+            <h3 class="title is-5"><%= venue.name %></h3>
+            <h4 class="subtitle is-6"><%= venue.location %></h4>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </a>
+      <% }) %>
+  </div>
+</main>

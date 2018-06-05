@@ -4,6 +4,7 @@ const users         = require('../controllers/users');
 const sessions      = require('../controllers/sessions');
 // const static        = require('../controllers/static');
 const classes       = require('../controllers/classes');
+const venues        =require('../controllers/venues');
 
 //security
 
@@ -21,9 +22,6 @@ router.route('/user/:id')
   .get(users.edit)
   .put(users.update)
   .delete(users.delete);
-
-// Write comments here
-//router.route('/user/:id/comments')
 
 //user login
 router.route('/login')
@@ -45,14 +43,43 @@ router.route('/classes/:id')
   .get(classes.show)
   .put(classes.update)
   .delete(classes.delete);
+
 router.route('classes/:id/edit')
   .get(classes.edit);
+
+router.route('/classes/:id/comments')
+  .post(classes.createComment);
+
+router.route('/classes/:id/comments/:commentId')
+  .delete(classes.deleteComment);
+
+
+router.route('/venues')
+  .get(venues.index)
+  .post(venues.create);
+
+router.route('/venues/new')
+  .get(venues.new);
+
+router.route('/venues/:id')
+  .get(venues.show)
+  .put(venues.update)
+  .delete(venues.delete);
+
+router.route('/venues/:id/edit')
+  .get(venues.edit);
+
+router.route('/venues/:id/comments')
+  .post(venues.commentsCreate);
+
+router.route('/venues/:id/comments/:commentId')
+  .delete(venues.commentsDelete);
 
 
 //Owner register
 //Owner Login
 
 
-
+router.all('/*', (req, res) => res.render('pages/404'));
 
 module.exports = router;

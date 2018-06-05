@@ -14,6 +14,7 @@ const mongoose            = require('mongoose');
 const router              = require('./config/router');
 const User                = require('./models/user');
 mongoose.Promise = require('bluebird');
+//flash, userAuth, key to encrypt session
 
 const {port, databaseURI} = require('./config/environment');
 mongoose.connect(databaseURI);

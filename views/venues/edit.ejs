@@ -1,0 +1,50 @@
+<div class="container">
+  <form method="POST" action="/studios/<%= venue._id%>">
+    <input type="hidden" name="_method" value="PUT">
+    <div class="field">
+      <label class="label">Venue Name</label>
+      <div class="control">
+        <input class="input" name="venueName" type="text" placeholder="Name" value="<%= venue.venueName %>" required>
+      </div>
+    </div>
+    <div class="field">
+      <label class="label">Address Line 1</label>
+      <div class="control">
+        <input class="input" name="addressLine1" type="text" placeholder="Address Line 1" value="<%= venue.addressLine1 %>" required>
+      </div>
+    </div>
+    <div class="field">
+      <label class="label">Address Line 2</label>
+      <div class="control">
+        <input class="input" name="addressLine2" type="text" placeholder="Address Line 2" value="<%= venue.addressLine2 %>" required>
+      </div>
+    </div>
+    <div class="field">
+      <label class="label">Image</label>
+      <div class="control">
+        <input class="input" name="image" type="text" placeholder="Image" value="<%= venue.image %>" required>
+      </div>
+    </div>
+    <div class="field">
+      <label class="label">Postcode</label>
+      <div class="control">
+        <input class="input" name="postcode" type="text" placeholder="Postcode" value="<%= venue.postcode %>" required>
+      </div>
+    </div>
+    <div class="field">
+      <label class="label">Website</label>
+      <div class="control">
+        <input class="input" name="website" type="text" placeholder="Website" value="<%= venue.website %>" required>
+      </div>
+    </div>
+    <div class="field">
+      <label class="label">Description</label>
+      <div class="control">
+        <textarea class="textarea" name="description" placeholder="Description"><%= venue.description %></textarea>
+      </div>
+    </div>
+    <div class="control">
+      <button class="button is-primary">Submit</button>
+    </div>
+  </form>
+</div>

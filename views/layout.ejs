@@ -2,12 +2,29 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>The Refinery</title>
-    <script src="/scripts/app.js" charset="utf-8"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="/js/app.js" charset="utf-8"></script>
   </head>
   <body>
-    <!-- include nav bar -->
-    <%- body %>
-  </body>
+    <%- include ./partials/_navbar %>
 
+    <% if(locals.isHomepage) { %>
+      <section class="hero is-info is-large">
+        <div class="hero-body">
+          <div class="container">
+          <%- body %>
+          </div>
+        </div>
+      </section>
+    <%} else { %>
+    <section class="section">
+      <div class="container">
+        <%- body %>
+      </div>
+    </section>
+    <%} %>
+  </body>
 </html>

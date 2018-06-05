@@ -1,0 +1,15 @@
+@font-face {
+  font-family: 'A-Love-of-Thunder';
+  src: url('fonts/a-love-of-thunder.ttf');
+  src:
+    local('Lovely Font'),
+    url('fonts/a-love-of-thunder.ttf')
+    format('opentype');
+}
+
+page-intro{
+  font-family: 'A-Love-of-Thunder';
+  font-size: 2.857em;
+  letter-spacing: 0.125em;
+
+}

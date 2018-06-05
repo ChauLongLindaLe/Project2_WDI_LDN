@@ -1,11 +1,10 @@
-<nav class="navbar is-fixed is-black aria-label="main navigation"">
+<nav class="navbar is-fixed is-black" role="navigation"  aria-label="main navigation">
   <div class="navbar-brand">
     <a class="navbar-item" href="/">
-      <img src="/images/logo.png" width="181px" height="79px" alt="Flyer's island logo">
+      <img src= 'https://i.imgur.com/izOV6Ro.png' width="181px" height="79px" alt="Flyer's island logo">
       &nbsp;
-      Flyer's Island
     </a>
-    <a role="button" class="navbar-burger" data-target="navMenu" onclick="document.querySelector('.navbar-menu').classList.toggle('is-active');">
+    <a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false">
       <span aria-hidden="true"></span>
       <span aria-hidden="true"></span>
       <span aria-hidden="true"></span>
@@ -16,14 +15,15 @@
       <a class="navbar-item" href="/classes">Classes</a>
       <% if(locals.isAuthenticated) { %>
         <a class="navbar-item" href="/classes/new"> List a new class</a>
+        <a class="navbar-item" href="/venues/new"> List a new venue</a>
         <a class="navbar-item" href="/users/<%= locals.currentUser._id %>">
-          <img class="imgNav" src="<%= locals.currentUser.imageSRC %>" />
+          <img class="imgNav" src="<%=locals.currentUser.imageSRC %>" />
           <%= locals.currentUser.username %>
         </a>
         <a class="navbar-item" href="/logout">Logout</a>
         <%  } else { %>
-        <a class="navbar-item" href="/register">Register</a>
         <a class="navbar-item" href="/login">Login</a>
+        <a class="navbar-item" href="/register">Register</a>
         <% } %>
     </div>
   </div>

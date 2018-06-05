@@ -1,13 +1,28 @@
 <h1>Edit Class</h1>
 
-<form class="" action="/class/ <%= class._id%>" method="POST">
+<div class="container">
+
+<form action="/classes/<%= class._id%>" method="POST">
+<input type="hidden" name="_method" value="PUT">
+  <div class="input-field">
+    <select name="discipline" id="discipline">
+      <option disabled selected>Please select your discipline</option>
+      <option value="aerialSilks">Aerial Silks</option>
+      <option value="aerialHoop">Aerial Hoop</option>
+      <option value="aerialStraps">Aerial Straps</option>
+      <option value="staticTrapeze">Static Trapeze</option>
+      <option value="aerialSlings">Aerial Slings</option>
+      <option value="chinesePole">Chinese Pole</option>
+    </select>
+    <label>Discipline</label>
+  </div>
     <div class='input-field'>
       <label for="className">Name</label>
-      <input type="text" name="className" id="className" value="<%= class.name %>" required>
+      <input type="text" name="className" id="className" value="<%= class.className %>" required>
     </div>
   <div class='input-field'>
-    <label for="img">Picture Url</label>
-    <input type="text" name="img" id="img" value="<%= class.img %>"required>
+    <label for="image">Image</label>
+    <input type="text" name="image" id="image" value="<%= class.image %>"required>
   </div>
   <div class='input-field'>
     <label for="address1">Address Line 1</label>
@@ -21,18 +36,12 @@
     <label for="postcode">Postcode</label>
     <input type="text" name="postcode" id="postcode" value="<%= class.postcode %>">
   </div>
-  <div class="input-field">
-      <select  name="discipline" id="discipline ">
-        <option value="" disabled selected>Please choose one of the options</option>
-        <option value="aerialSilks">Aerial Silks</option>
-        <option value="aerialHoop">Aerial Hoop</option>
-        <option value="aerialStraps">Aerial Straps</option>
-        <option value="staticTrapeze">Static Trapeze</option>
-        <option value="aerialSlings">Aerial Slings</option>
-        <option value="chinesePole">Chinese Pole</option>
-      </select>
-      <label>Discipline</label>
-    </div>
-  <button class="register">Register</button>
+  <button class="button is-danger">Register</button>
   </form>
+
+
+  <form action="/classes/<%= class.id %>" method="POST">
+  <input type="hidden" name="_method" value="DELETE">
+  <button class="button is-primary">Delete Class</button>
+</form>
 </div>
