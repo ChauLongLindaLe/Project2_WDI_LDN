@@ -1,0 +1,34 @@
+<div class="container">
+  <div>
+  <form class="" action="/users/<%= user._id %>" method="post">
+    <input type="hidden" name="_method" value="PUT">
+    <input type="text" name="name" id="name_field" value="<%= user.name %>" required>
+    <label for="name_field">Name</label>
+
+    <input type="email" name="email" id="email_field" value="<%= user.email %>" required>
+    <label for="email_field">email</label>
+
+    <input type="text" name="profileImg" id="profileImg" value="<%= user.profileImg %>" required>
+    <label for="profileImg">Profile Picture</label>
+
+    <div class='input-field'>
+      <label for="password">New Password</label>
+      <input type="password" name="password" id="password" required>
+    </div>
+    <div class='input-field'>
+      <label for="passwordConfirmation">Confirm New Password</label>
+      <input type="password" name="passwordConfirmation" id="passwordConfirmation" required>
+    </div>
+
+    <button class="custommargin waves-effect waves-light green btn">SAVE</button>
+
+  </form>
+
+<form action="/users/<%= user.id %>" method="post">
+  <input type="hidden" name="_method" value="DELETE">
+  <button class="custommargin waves-effect waves-light red btn">DELETE PROFILE</button>
+</form>
+
+  </div>
+
+</div>

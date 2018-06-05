@@ -8,7 +8,7 @@ const expressLayouts     = require('express-ejs-layouts');
 const session             = require('express-session');
 const bodyParser          = require('body-Parser');
 const methodOverride      = require('method-override');
-
+const morgan              = require('morgan');
 //database
 const mongoose            = require('mongoose');
 const router              = require('./config/router');
@@ -27,6 +27,7 @@ app.use(expressLayouts);
 app.set('view engine', 'ejs');
 app.set('views', `${__dirname}/views`);
 app.use(express.static(`${__dirname}/public`));
+app.use(morgan('dev'));
 
 
 //body parser to translate form input
@@ -40,6 +41,18 @@ app.use(methodOverride(req => {
   }
 }));
 
+
+app.use((req, res, next) => {
+  if(!req.session.userId) return next();
+  User
+    .findById(req.session.userId)
+    .then((user) =>{
+      req.session.userId._id = user._id;
+      res.locals.user = user;
+      res.locals.isLoggedIn = true;
+      next();
+    });
+});
 
 
 app.use(router);
