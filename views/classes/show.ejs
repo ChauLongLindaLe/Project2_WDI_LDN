@@ -1,16 +1,9 @@
 <div class="container">
-<h1 class= title is-1><%= klass.name %></h1>
-<h><%= klass.price %></h1>
-<h2><%= klass.time %></h2>
-<h2><%= klass.addressLine1 %></h2>
-<h2><%= klass.addressLine2 %></h2>
-<h1><%= klass.postcode %></h1>
-
-
-<img src='<%= klass.image' alt='<%=klass.name%>'/>
-
-<h5 ><%=klass.description%></h4>
-<h6><%=klass.website%></h6>
+<h1 class= "title is-1"><%= klass.name %></h1>
+<img src='<%= klass.image%>' alt='<%=klass.name%>'/>
+<h5 ><%=klass.description%></h5>
+<h5 class= "subtitle">£<%= klass.price %> per class</h5>
+<h5 class= "subtitle">Class starts at <%= klass.time %></h5>
 
 <div>
  <% if(klass.comments.length > 0){ %>

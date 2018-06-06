@@ -1,13 +1,3 @@
-/* Fonts */
-@font-face {
-  font-family: 'A-Love-of-Thunder';
-  src: url('fonts/a-love-of-thunder.ttf');
-  src:
-    local('Lovely Font'),
-    url('fonts/a-love-of-thunder.ttf')
-    format('opentype');
-}
-
 *{
   box-sizing: border-box;
   color: #7e7d7d;
@@ -18,7 +8,7 @@ errorContainer {
   background: url('https://i.redd.it/7bumjq8v4eaz.jpg');
 }
 
-.socialmedia{
+.footer{
   display: inline-flex;
 }
 page-intro{

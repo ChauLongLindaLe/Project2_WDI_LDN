@@ -21,8 +21,8 @@ function venuesShow(req, res, next) {
     })
     .then(venue => {
       Class.find({'venue': venue.name})
-        .then(classes => {
-          res.render('venues/show', { venues: venue , classes: classes});
+        .then(klasses => {
+          res.render('venues/show', { venue: venue , klasses: klasses});
         });
     })
     .catch(next);
