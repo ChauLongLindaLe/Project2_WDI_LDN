@@ -9,7 +9,7 @@ errorContainer {
 }
 
 .footer{
-  display: inline;
+  display: flex;
   list-style-type: none;
 
 }
