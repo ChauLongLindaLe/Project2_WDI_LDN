@@ -10,7 +10,7 @@ const venueSchema = new mongoose.Schema({
   image: String,
   website: {type: String, required: true},
   comments: [{
-    subject: {type: String},
+    subject: {type: String, minlength: 3},
     comment: {type: String},
     creator: {type: mongoose.Schema.Types.ObjectId, ref: 'User'}
   }]

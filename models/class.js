@@ -11,7 +11,7 @@ const classSchema = new mongoose.Schema({
   image: {type: String , required: true},
   price: {type: Number, required: true},
   comments: [{
-    subject: {type: String},
+    subject: {type: String ,minlength: 3},
     comment: {type: String},
     creator: {type: mongoose.Schema.Types.ObjectId, ref: 'User'}
   }]

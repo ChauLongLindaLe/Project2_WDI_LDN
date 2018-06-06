@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function () {
-
+window.addEventListener('DOMContentLoaded', () => {
+  console.log('JS is running');
 
 });

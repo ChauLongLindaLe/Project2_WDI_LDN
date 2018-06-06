@@ -43,7 +43,7 @@ function venuesCreate(req, res, next) {
 function venuesEdit(req, res) {
   Venue
     .findById(req.params.id)
-    .then(venue => res.render('/venues/edit', { venue }));
+    .then(venue => res.render('venues/edit', { venue }));
 }
 
 function venuesUpdate(req, res) {

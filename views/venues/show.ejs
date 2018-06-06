@@ -5,17 +5,19 @@
         <img src="<%= venue.image %>" alt="<%= venue.name %>">
       </figure>
     </div>
-    <div class="columns">
       <div class="column">
         <h3 class="title is-3"><%= venue.name %></h3>
-          <h3 class="title is-6" </h3>
+          <h6 class="title is-6"><%= venue.postcode%></h6>
+          <div class="classList">
             <% klasses.forEach(klass => { %>
               <a href="/classes/<%= klass._id %>"><%= klass.name %></a>
               <% }) %>
+          </div>
       </div>
       <% if(locals.isLoggedIn) { %>
-        <div class="columns">
+        <div class="column">
         <a href="/venues/<%= venue._id %>/edit" class="button is-danger">Edit Venue</a>
+
         <form method="POST" action="/venues/<%= venue._id %>">
           <input type="hidden" name="_method" value="DELETE">
           <button class="button is-danger">Delete Venue</button>
@@ -24,13 +26,13 @@
         <hr />
         <form method="POST" action="/venues/<%= venue._id %>/comments">
           <div class="field">
-            <div class="control">
-              <input name="maintitle" class="input" type="text" placeholder="Subject Title">
+          <div class="control">
+              <input name="subject" class="input" type="text" placeholder="Subject Title">
             </div>
           </div>
           <div class="field">
-            <div class="control">
               <textarea class="textarea" name="content" placeholder="Write a review..."></textarea>
+              <div class="control">
             </div>
           </div>
           <div class="field">
@@ -70,12 +72,6 @@
               </div>
             </li>
           <% }) %>
-        </ul>
-        <form class="commentForm" method="POST" action="/venues/<%= venue._id %>/comments">
-          <textarea class="textarea" name="content"></textarea>
-          <br/>
-          <button class="button is-primary">Submit</button>
-        </form>
       <% } else { %>
         <p>Log in to leave a review</p>
         <% } %>
