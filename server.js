@@ -19,18 +19,16 @@ mongoose.Promise = require('bluebird');
 const {port, databaseURI} = require('./config/environment');
 mongoose.connect(databaseURI);
 
-
-
 const app = express();
 
 app.use(expressLayouts);
+app.use(morgan('dev'));
 app.set('view engine', 'ejs');
 app.set('views', `${__dirname}/views`);
 app.use(express.static(`${__dirname}/public`));
-app.use(morgan('dev'));
 
 
-//body parser to translate form input
+
 app.use(bodyParser.urlencoded({ extended: true}));
 
 app.use(methodOverride(req => {
@@ -41,11 +39,18 @@ app.use(methodOverride(req => {
   }
 }));
 
+app.use(session({
+  secret: process.env.SESSION_SECRET || 'ssh it\'s a secret',
+  resave: false,
+  saveUninitialized: false
+}));
 
 app.use((req, res, next) => {
   if(!req.session.userId) return next();
   User
     .findById(req.session.userId)
+    // .populate({path: 'classes', populate: {path: 'creator'}})
+    // .exec()
     .then((user) =>{
       req.session.userId._id = user._id;
       res.locals.user = user;

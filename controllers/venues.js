@@ -4,8 +4,8 @@ const Class = require('../models/class');
 function venuesIndex(req, res) {
   Venue
     .find()
-    .then(venue =>{
-      res.render('venues/index',{venue});
+    .then(venues =>{
+      res.render('venues/index',{venues});
     });
 }
 
@@ -20,7 +20,7 @@ function venuesShow(req, res, next) {
       return venue;
     })
     .then(venue => {
-      Class.find({'venue': venue.venueName})
+      Class.find({'venue': venue.name})
         .then(classes => {
           res.render('venues/show', { venues: venue , classes: classes});
         });
@@ -30,13 +30,13 @@ function venuesShow(req, res, next) {
 
 function venuesNew(req, res) {
   if(!res.locals.isLoggedIn) return res.redirect('/');
-  res.render('/venues/new');
+  res.render('venues/new');
 }
 
 function venuesCreate(req, res, next) {
   Venue
     .create(req.body)
-    .then(() => res.redirect('/venues'))
+    .then(() => res.redirect('venues'))
     .catch(next);
 }
 

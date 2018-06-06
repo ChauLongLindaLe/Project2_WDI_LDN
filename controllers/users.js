@@ -1,7 +1,7 @@
-const User = require('../models/user.js');
+const User = require('../models/user');
 
 function usersNew( req, res){
-  res.render('/sessions/new');
+  res.render('sessions/new');
 
 }
 function usersShow( req, res){
@@ -15,18 +15,18 @@ function usersShow( req, res){
 function usersCreate( req, res){
   User
     .create(req.body)
-    .then(() => res.redirect('/'));
-  //add error message
-
+    .then((user) => {
+      console.log(user);
+      res.redirect('/');
+    });
 }
+
 function usersEdit( req, res){
   User
     .findById(req.params.id)
     .exec()
     .then(user => res.render('users/edit', {user}));
-
 }
-
 
 function usersUpdate(req,res){
   User
@@ -53,5 +53,4 @@ module.exports = {
   edit: usersEdit,
   update: usersUpdate,
   delete: usersDelete
-
 };

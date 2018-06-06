@@ -2,17 +2,17 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 
 const userSchema = new mongoose.Schema({
-  username: { type: String, required: true },
+  name: { type: String, required: true , minlength: 3},
   email: { type: String, unique: true, required: true},
   password: { type: String, required: true },
   addressLine1: { type: String, required: true },
   addressLine2: String,
   postcode: {type: String, required: true },
-  profilePicture: { type: String, required: true }
+  profilePicture: { type: String, required: true },
+  isVenue: { type: Boolean, default: false }
 },{
   timestamps: true
 });
-
 
 
 //Validate Password
@@ -30,18 +30,15 @@ userSchema
   });
 
 //Password Confirmation
-
 userSchema.virtual('passwordConfirmation')
   .set(function setPasswordConfirmation(passwordConfirmation){
     this._passwordConfirmation = passwordConfirmation;
   });
 
-
 //Validate Password
-
 userSchema.pre('validate', function(next){
   if(this.isModified('password') && this._passwordConfirmation !== this.password){
-    this.invalidate('password');
+    this.invalidate('passwordConfirmation');
   }
   next();
 });

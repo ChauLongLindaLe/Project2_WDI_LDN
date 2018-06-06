@@ -3,9 +3,16 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title></title>
+    <title>Flyer's Island</title>
+    <!-- Bulma -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css">
+    <!-- Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <!-- font awesome icons -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/style.css">
+    <!-- bulma carousel -->
+    <script type="text/javascript" src="/node_modules/bulma-extensions/bulma-carousel/dist/bulma-carousel.min.js"></script>
     <script src="/js/app.js" charset="utf-8"></script>
   </head>
   <body>
@@ -19,6 +26,7 @@
           </div>
         </div>
       </section>
+      <%- include ./partials/_footer %>
     <%} else { %>
     <section class="section">
       <div class="container">
@@ -26,5 +34,6 @@
       </div>
     </section>
     <%} %>
+    <%- include ./partials/_footer %>
   </body>
 </html>

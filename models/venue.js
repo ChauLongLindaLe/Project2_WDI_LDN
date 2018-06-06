@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const venueSchema = new mongoose.Schema({
-  venueName: { type: String, required: true},
+  name: { type: String, required: true},
   lessons: {type: String},
   addressLine1: {type: String, required: true},
   addressLine2: {type: String, required: true},

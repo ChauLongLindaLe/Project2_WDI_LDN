@@ -1,10 +1,10 @@
 <div class="container">
-  <form method="POST" action="/studios/<%= venue._id%>">
+  <form method="POST" action="/venues/<%= venue._id%>">
     <input type="hidden" name="_method" value="PUT">
     <div class="field">
       <label class="label">Venue Name</label>
       <div class="control">
-        <input class="input" name="venueName" type="text" placeholder="Name" value="<%= venue.venueName %>" required>
+        <input class="input" name="name" type="text" placeholder="Name" value="<%= venue.name %>" required>
       </div>
     </div>
     <div class="field">

@@ -1,50 +1,54 @@
-<div class="container">
-  <form method="POST" action="/studios/<%= venue._id%>">
-    <input type="hidden" name="_method" value="PUT">
-    <div class="field">
-      <label class="label">Venue Name</label>
-      <div class="control">
-        <input class="input" name="venueName" type="text" placeholder="Name" value="<%= venue.venueName %>" required>
+<main>
+  <div class="container">
+    <h1 class="title is-2">Add a venue</h1>
+    <h5 class="subtitle">Required fields are marked <strong>*</strong></h5>
+    <form method="POST" action="/venues">
+      <div class="field">
+        <label class="label">Venue Name <strong>*</strong>
+        <div class="control">
+          <input class="input" name="name" type="text" placeholder="Name" minlength="3" required>
+          </label>
+        </div>
       </div>
-    </div>
-    <div class="field">
-      <label class="label">Address Line 1</label>
-      <div class="control">
-        <input class="input" name="addressLine1" type="text" placeholder="Address Line 1" value="<%= venue.addressLine1 %>" required>
+      <div class="field">
+        <label class="label">Address Line 1<strong>*</strong></label>
+        <div class="control">
+          <input class="input" name="addressLine1" type="text" placeholder="Address Line 1" required>
+        </div>
       </div>
-    </div>
-    <div class="field">
-      <label class="label">Address Line 2</label>
-      <div class="control">
-        <input class="input" name="addressLine2" type="text" placeholder="Address Line 2" value="<%= venue.addressLine2 %>" required>
+      <div class="field">
+        <label class="label">Address Line 2</label>
+        <div class="control">
+          <input class="input" name="addressLine2" type="text" placeholder="Address Line 2"required>
+        </div>
       </div>
-    </div>
-    <div class="field">
-      <label class="label">Image</label>
-      <div class="control">
-        <input class="input" name="image" type="text" placeholder="Image" value="<%= venue.image %>" required>
+      <div class="field">
+        <label class="label">Postcode<strong>*</strong></label>
+        <div class="control">
+          <input class="input" name="postcode" type="text" placeholder="Postcode" required>
+        </div>
       </div>
-    </div>
-    <div class="field">
-      <label class="label">Postcode</label>
-      <div class="control">
-        <input class="input" name="postcode" type="text" placeholder="Postcode" value="<%= venue.postcode %>" required>
+      <div class="field">
+        <label class="label">Image</label>
+        <div class="control">
+          <input class="input" name="image" type="text" placeholder="Image" required>
+        </div>
       </div>
-    </div>
-    <div class="field">
-      <label class="label">Website</label>
-      <div class="control">
-        <input class="input" name="website" type="text" placeholder="Website" value="<%= venue.website %>" required>
+      <div class="field">
+        <label class="label">Website<strong>*</strong></label>
+        <div class="control">
+          <input class="input" name="website" type="text" placeholder="Website" required>
+        </div>
       </div>
-    </div>
-    <div class="field">
-      <label class="label">Description</label>
-      <div class="control">
-        <textarea class="textarea" name="description" placeholder="Description"><%= venue.description %></textarea>
+      <div class="field">
+        <label class="label">Description<strong>*</strong></label>
+        <div class="control">
+          <textarea class="textarea" name="description" placeholder="Description"></textarea>
+        </div>
       </div>
-    </div>
-    <div class="control">
-      <button class="button is-primary">Submit</button>
-    </div>
-  </form>
-</div>
+      <div class="control">
+        <button class="button is-primary">Submit</button>
+      </div>
+    </form>
+  </div>
+</main>

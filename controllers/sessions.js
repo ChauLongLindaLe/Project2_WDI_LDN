@@ -1,11 +1,11 @@
 const User = require('../models/user');
 
-function newRoute(req, res){
+function sessionsNew(req, res){
   res.render('sessions/login');
 }
 
 //login authentication
-function createRoute(req, res) {
+function sessionsCreate(req, res) {
   User
     .findOne({email: req.body.email })
     .then((user)=>{
@@ -18,15 +18,14 @@ function createRoute(req, res) {
     });
 }
 
-
 //logout function - regenerate session cookie
-function deleteRoute(req, res){
+function sessionsDelete(req, res){
   return req.session.regenerate(() => res.redirect('/sessions/logout'));
 }
 
 
 module.exports = {
-  new: newRoute,
-  create: createRoute,
-  delete: deleteRoute
+  new: sessionsNew,
+  create: sessionsCreate,
+  delete: sessionsDelete
 };

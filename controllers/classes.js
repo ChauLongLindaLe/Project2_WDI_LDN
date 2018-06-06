@@ -6,7 +6,7 @@ function classesIndex(req,res){
     .find()
     .exec()
     .then(klasses =>{
-      res.render('classes/index', {klasses});
+      res.render('home', {klasses});
     });
 }
 
@@ -22,9 +22,9 @@ function classesShow(req,res,next){
       return klass;
     })
     .then(klass => {
-      Venue.find({ 'lessons': klass.className})
+      Venue.find({ 'lessons': klass.name})
         .then(venues => {
-          res.render('/classes/show', {klass, venues });
+          res.render('classes/show', {klass, venues });
         });
     })
     .catch(next);
@@ -32,14 +32,14 @@ function classesShow(req,res,next){
 
 function classesNew(req,res){
   if(!res.locals.isLoggedIn) return res.redirect('/');
-  res.render('/classes/new');
+  res.render('classes/new');
 }
 
 
 function classesCreate(req,res,next){
   Class
     .create(req.body)
-    .then(() => res.redirect('/classes'))
+    .then(() => res.redirect('classes'))
     .catch(next);
 }
 
@@ -47,7 +47,7 @@ function classesEdit(req,res){
   Class
     .findById(req.params.id)
     .exec()
-    .then(klass => res.render('/classes/edit', {klass}));
+    .then(klass => res.render('classes/edit', {klass}));
 }
 
 
@@ -64,6 +64,7 @@ function classesUpdate(req,res){
 
 
 function classesDelete(req,res){
+  if (!res.locals.isLoggedIn) return res.redirect('/');
   Class
     .findById(req.params.id)
     .exec()
@@ -76,7 +77,8 @@ function classesDelete(req,res){
 
 function classesCreateComment(req, res, next) {
   req.body.user = req.currentUser;
-  Class.findById(req.params.id)
+  Class
+    .findById(req.params.id)
     .then(klass => {
       klass.comments.push(req.body);
       return klass.save();
@@ -86,7 +88,8 @@ function classesCreateComment(req, res, next) {
 }
 
 function classesDeleteComment(req, res, next) {
-  Class.findById(req.params.id)
+  Class
+    .findById(req.params.id)
     .then(klass => {
       const comment = klass.comments.id(req.params.commentId);
       comment.remove();

@@ -8,7 +8,7 @@ const venues        =require('../controllers/venues');
 
 //security
 
-// handles requestss
+// handles requests
 router.route('/')
   .get(classes.index);
 
@@ -43,6 +43,7 @@ router.route('/classes/:id')
   .get(classes.show)
   .put(classes.update)
   .delete(classes.delete);
+// .post(classes.comments);
 
 router.route('classes/:id/edit')
   .get(classes.edit);
@@ -76,10 +77,8 @@ router.route('/venues/:id/comments/:commentId')
   .delete(venues.commentsDelete);
 
 
-//Owner register
-//Owner Login
 
-
+//global error catcher
 router.all('/*', (req, res) => res.render('pages/404'));
 
 module.exports = router;

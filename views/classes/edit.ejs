@@ -1,8 +1,8 @@
-<h1>Edit Class</h1>
+<h1>Edit <%=klass.name%></h1>
 
 <div class="container">
 
-<form action="/classes/<%= class._id%>" method="POST">
+<form action="/classes/<%= klass._id%>" method="POST">
 <input type="hidden" name="_method" value="PUT">
   <div class="input-field">
     <select name="discipline" id="discipline">
@@ -17,30 +17,34 @@
     <label>Discipline</label>
   </div>
     <div class='input-field'>
-      <label for="className">Name</label>
-      <input type="text" name="className" id="className" value="<%= class.className %>" required>
+      <label for="name">Name</label>
+      <input type="text" name="name" id="name" value="<%= klass.name %>" required>
     </div>
   <div class='input-field'>
     <label for="image">Image</label>
-    <input type="text" name="image" id="image" value="<%= class.image %>"required>
+    <input type="text" name="image" id="image" value="<%= klass.image %>"required>
   </div>
   <div class='input-field'>
-    <label for="address1">Address Line 1</label>
-    <input type="text" name="address1" id="address1" value="<%= class.address1 %>">
+    <label for="price">Price</label>
+    <input type="text" name="price" id="price" value="<%= klass.price %>" required>
   </div>
   <div class='input-field'>
-    <label for="address2">Address Line 2</label>
-    <input type="text" name="address2" id="address2" value="<%= class.address2 %>">
+    <label for="addressLine1">Address Line 1</label>
+    <input type="text" name="addressLine1" id="addressLine1" value="<%= klask.addressLine1 %>">
+  </div>
+  <div class='input-field'>
+    <label for="addressLine2">Address Line 2</label>
+    <input type="text" name="addressLine2" id="addressLine2" value="<%= klass.addressLine2 %>">
   </div>
   <div class='input-field'>
     <label for="postcode">Postcode</label>
-    <input type="text" name="postcode" id="postcode" value="<%= class.postcode %>">
+    <input type="text" name="postcode" id="postcode" value="<%= klass.postcode %>">
   </div>
-  <button class="button is-danger">Register</button>
+  <button class="button is-danger">Save Changes</button>
   </form>
 
 
-  <form action="/classes/<%= class.id %>" method="POST">
+  <form action="/classes/<%= klass.id %>" method="POST">
   <input type="hidden" name="_method" value="DELETE">
   <button class="button is-primary">Delete Class</button>
 </form>

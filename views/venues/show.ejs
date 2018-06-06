@@ -2,26 +2,23 @@
   <div class="columns">
     <div class="column">
       <figure class="image">
-        <img src="<%= venue.image %>" alt="<%= venue.venueName %>">
+        <img src="<%= venue.image %>" alt="<%= venue.name %>">
       </figure>
     </div>
-    <div class="column venueShowPage">
-      <h3 class="title"><%= venue.venueName %></h3>
-      <h4 class="subtitle"><%= venue.location %></h4>
-
-      <div class="class-list">
-        <h3 class="title is-6" id="classesLink">Classes here: </h3>
-        <% classes.forEach(class => { %>
-          <a href="/classes/<%= class._id %>"><%= class.className %></a>
-          <% }) %>
-
-
-      <% if(locals.isAuthenticated) { %>
-        <div class="column showPageButtons">
-        <a href="/venues/<%= venue._id %>/edit" class="button">Edit</a>
+    <div class="columns">
+      <div class="column">
+        <h3 class="title is-3"><%= venue.name %></h3>
+          <h3 class="title is-6" </h3>
+            <% klasses.forEach(klasses => { %>
+              <a href="/classes/<%= klass._id %>"><%= klass.name %></a>
+              <% }) %>
+      </div>
+      <% if(locals.isLoggedIn) { %>
+        <div class="columns">
+        <a href="/venues/<%= venue._id %>/edit" class="button is-danger">Edit Venue</a>
         <form method="POST" action="/venues/<%= venue._id %>">
           <input type="hidden" name="_method" value="DELETE">
-          <button class="button">Delete</button>
+          <button class="button is-danger">Delete Venue</button>
         </form>
         </div>
         <hr />
@@ -43,6 +40,7 @@
           </div>
         </form>
         <hr />
+        <h2 class="subtitle">Comments</h2>
         <ul class="comments">
           <% venue.comments.forEach(comment => { %>
             <li>
@@ -54,12 +52,17 @@
               </form>
               <% } %>
               <article class="media">
+                <div class="media-left">
+                  <figure class="image is-64x64">
+                    <img src="<%= comment.user.profile %>" alt="<%= comment.user.username   %>">
+                  </figure>
+                </div>
                 <div class="media-content">
                   <div class="content">
                   <p><strong><%= comment.subject %></strong></p>
                     <p><%= comment.content %></p>
                     <% if(comment.user) { %>
-                    <strong><%= comment.user.username %></strong>
+                    <strong><%= comment.user.name %></strong>
                     <% } %>
                   </div>
                 </div>
@@ -68,6 +71,11 @@
             </li>
           <% }) %>
         </ul>
+        <form class="commentForm" method="POST" action="/venues/<%= venue._id %>/comments">
+          <textarea class="textarea" name="content"></textarea>
+          <br/>
+          <button class="button is-primary">Submit</button>
+        </form>
       <% } else { %>
         <p>Log in to leave a review</p>
         <% } %>

@@ -1,11 +1,44 @@
-<h1><%= class.name %></h1>
-<h2><%= class.time %></h2>
-<h2><%= class.addressLine1 %></h2>
-<h2><%= class.addressLine2 %></h2>
-<h1><%= class.postcode %></h1>
-<h1><%= class.name %></h1>
+<div class="container">
+<h1 class= title is-1><%= klass.name %></h1>
+<h><%= klass.price %></h1>
+<h2><%= klass.time %></h2>
+<h2><%= klass.addressLine1 %></h2>
+<h2><%= klass.addressLine2 %></h2>
+<h1><%= klass.postcode %></h1>
 
-<img src='<%= class.image' alt='<%=class.name%>'/>
 
-<h4><%=class.description%></h4>
-<h6><%=class.website%></h6>
+<img src='<%= klass.image' alt='<%=klass.name%>'/>
+
+<h5 ><%=klass.description%></h4>
+<h6><%=klass.website%></h6>
+
+<div>
+ <% if(klass.comments.length > 0){ %>
+   <% klass.comments.forEach(comments => { %>
+    <% if(comments.creator) { %>
+      <img src="<%= comments.creator.profilePicture %>" alt="Profile picture of <%= comments.creator.name%>">
+      <%= comments.creator.name %>
+      <%= comments.comment %>
+      <% } %>
+      <% }) %>
+   <% } else { %>
+     <p>Be the first to review </p>
+   <% } %>
+    <% if(locals.isLoggedIn){ %>
+        <form action="/classes/<%= klass._id %>" method="POST">
+              <textarea name="comment" id="comment"</textarea>
+              <label for="comment">Write your review here</label>
+             <input type="hidden" name="creator" value="<%= user._id %>">
+            <button class="button is-danger">Submit</button>
+          </div>
+        </form>
+        <a href='/classes/<%= klass._id %>/edit'>Edit this class</a>
+      </div>
+   <% } else { %>
+     <div class="row">
+     <h5>You must be logged in to make a comment</h5>
+     <a href='/login'>Login</a>
+     <a href='/register'>Sign up</a>
+   <% } %>
+
+</div>

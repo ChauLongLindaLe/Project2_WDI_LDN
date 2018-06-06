@@ -2,31 +2,48 @@
   <div>
   <form class="" action="/users/<%= user._id %>" method="post">
     <input type="hidden" name="_method" value="PUT">
-    <input type="text" name="name" id="name_field" value="<%= user.name %>" required>
-    <label for="name_field">Name</label>
+      <div class="input-field">
+        <input type="text" name="name" id="name_field" value="<%= user.name %>" required minlength="2">
+        <label for="name_field">Name</label>
+      </div>
+      <div class="input-field">
+        <input type="email" name="email" id="email_field" value="<%= user.email %>" required>
+        <label for="email_field">Email</label>
+      </div>
+      <div class="input-field">
+        <input type="text" name="profilePicture" id="profilePicture" value="<%= user.profilePicture %>"  pattern="https?://.+">
+        <label for="profilePicture">Profile Picture</label>
+      </div>
 
-    <input type="email" name="email" id="email_field" value="<%= user.email %>" required>
-    <label for="email_field">email</label>
+      <div class='input-field'>
+        <label for="addressLine1">Address Line 1</label>
+        <input type="text" name="addressLine1" id="addressLine1" value="<%= user.addressLine1%>"  required>
+      </div>
+      <div class='input-field'>
+        <label for="addressLine2">Address Line 2</label>
+        <input type="text" name="addressLine2" id="addressLine2" value="<%= user.addressLine2%>">
+      </div>
+      <div class='input-field'>
+        <label for="postcode">Postcode</label>
+        <input type="text" name="postcode" id="postcode" value="<%= user.postcode%>"required>
+      </div>
+      <div class='input-field'>
+        <label for="password">New Password</label>
+        <input type="password" name="password" id="password" required minlength="5">
+      </div>
+      <div class='input-field'>
+        <label for="passwordConfirmation">Confirm New Password</label>
+        <input type="password" name="passwordConfirmation" id="passwordConfirmation" required   minlength="5">
+      </div>
 
-    <input type="text" name="profileImg" id="profileImg" value="<%= user.profileImg %>" required>
-    <label for="profileImg">Profile Picture</label>
 
-    <div class='input-field'>
-      <label for="password">New Password</label>
-      <input type="password" name="password" id="password" required>
-    </div>
-    <div class='input-field'>
-      <label for="passwordConfirmation">Confirm New Password</label>
-      <input type="password" name="passwordConfirmation" id="passwordConfirmation" required>
-    </div>
-
-    <button class="custommargin waves-effect waves-light green btn">SAVE</button>
+    <button class="button is-danger">SAVE</button>
 
   </form>
 
 <form action="/users/<%= user.id %>" method="post">
   <input type="hidden" name="_method" value="DELETE">
-  <button class="custommargin waves-effect waves-light red btn">DELETE PROFILE</button>
+  <button class="button is-danger">DELETE PROFILE</button>
 </form>
 
   </div>
