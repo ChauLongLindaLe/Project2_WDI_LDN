@@ -13,6 +13,12 @@
               <a href="/classes/<%= klass._id %>"><%= klass.name %></a>
               <% }) %>
           </div>
+          <div class="columns">
+            <div class="column is-9">
+              <p><%= venue.description%></p>
+              <a href="<%= venue.website %>">
+            </div>
+          </div>
       </div>
       <% if(locals.isLoggedIn) { %>
         <div class="column">
@@ -62,7 +68,7 @@
                 <div class="media-content">
                   <div class="content">
                   <p><strong><%= comment.subject %></strong></p>
-                    <p><%= comment.content %></p>
+                    <p><%= comment.comment %></p>
                     <% if(comment.user) { %>
                     <strong><%= comment.user.name %></strong>
                     <% } %>

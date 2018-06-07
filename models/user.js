@@ -8,7 +8,7 @@ const userSchema = new mongoose.Schema({
   addressLine1: { type: String, required: true },
   addressLine2: String,
   postcode: {type: String, required: true },
-  profilePicture: { type: String, required: true },
+  profilePicture: { type: String, required: true},
   isVenue: { type: Boolean, default: false }
 },{
   timestamps: true

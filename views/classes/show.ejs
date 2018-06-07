@@ -8,7 +8,7 @@
 <div>
  <% if(klass.comments.length > 0){ %>
    <% klass.comments.forEach(comments => { %>
-    <% if(comments.creator) { %>
+    <% if(comment.isOwnedBy(locals.currentUser)) { %>
       <img src="<%= comments.creator.profilePicture %>" alt="Profile picture of <%= comments.creator.name%>">
       <%= comments.creator.name %>
       <%= comments.comment %>

@@ -1,6 +1,18 @@
 const mongoose = require('mongoose');
 
-//put min lengths in for each.
+const commentSchema = new mongoose.Schema({
+  subject: {type: String ,minlength: 3},
+  comment: {type: String, minlength: 3},
+  creator: {type: mongoose.Schema.Types.ObjectId, ref: 'User'}
+}, {
+  timestamps: true
+});
+
+commentSchema.methods.isOwnedBy = function(user) {
+  return this.user._id && user._id.equals(this.user._id);
+};
+
+//put min lengths in for each and max length
 const classSchema = new mongoose.Schema({
   name: { type: String, required: true},
   venue: {type: String, required: true},
@@ -10,15 +22,8 @@ const classSchema = new mongoose.Schema({
   description: {type: String, required: true},
   image: {type: String , required: true},
   price: {type: Number, required: true},
-  comments: [{
-    subject: {type: String ,minlength: 3},
-    comment: {type: String},
-    creator: {type: mongoose.Schema.Types.ObjectId, ref: 'User'}
-  }]
-}, {
-  timestamps: true
+  comment: [commentSchema]
 });
-
 
 
 
