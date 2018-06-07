@@ -6,7 +6,7 @@ function classesIndex(req,res){
     .find()
     .exec()
     .then(klasses =>{
-      res.render('home', {klasses});
+      res.render('classes/index', {klasses});
     });
 }
 

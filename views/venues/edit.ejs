@@ -32,7 +32,7 @@
       </div>
     </div>
     <div class="field">
-      <label class="label">Website</label>
+      <label class="label">Website URL</label>
       <div class="control">
         <input class="input" name="website" type="text" placeholder="Website" value="<%= venue.website %>" required>
       </div>
@@ -43,8 +43,10 @@
         <textarea class="textarea" name="description" placeholder="Description"><%= venue.description %></textarea>
       </div>
     </div>
-    <div class="control">
-      <button class="button is-primary">Submit</button>
+    <div class="field">
+      <div class="control">
+        <button class="button is-primary">Submit</button>
+      </div>
     </div>
   </form>
 </div>

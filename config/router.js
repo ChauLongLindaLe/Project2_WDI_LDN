@@ -9,13 +9,16 @@ const venues        =require('../controllers/venues');
 //security
 
 // handles requests
-router.route('/')
-  .get(classes.index);
+router.get('/',(req, res) => res.render('home', {
+  isHomepage: true
+}));
 
 //user register
 router.route('/register')
   .get(users.new)
   .post(users.create);
+
+
 
 //user edit update and delete details
 router.route('/user/:id')
@@ -74,7 +77,7 @@ router.route('/venues/:id/comments')
   .post(venues.createComment);
 
 router.route('/venues/:id/comments/:commentId')
-  .delete(venues.deleteComment);
+  .delete(venues.delete);
 
 
 //global error catcher

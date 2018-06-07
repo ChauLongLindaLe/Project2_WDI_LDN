@@ -1,10 +1,5 @@
 <div class="hero-head">
-    <%# //this is displaying the navbar as transparent on the home page and not on the others. %>
-    <% if(locals.isHomepage) { %>
-    <nav class="navbar is-transparent">
-    <% } else { %>
       <nav class="navbar is-fixed is-black" role="navigation"  aria-label="dropdown navigation">
-    <% } %>
         <div class="navbar-brand">
           <a class="navbar-item" href="/">
             <img src= 'https://i.imgur.com/izOV6Ro.png' width="150px"   height="79px" alt="Flyer's island logo">
@@ -23,7 +18,7 @@
               <div class="navbar-item has-dropdown is-hoverable">
                 <a class="navbar-link"><%= locals.currentUser.name %></a>
                 <div class="navbar-dropdown">
-                <a class="navbar-item" href="/users/<%= locals.currentUser._id  %>">My Profile</a>
+                // <a class="navbar-item" href="/users/<%= locals.currentUser._id  %>">My Profile</a>
                 <a class="navbar-item" href="/classes/new">List a new   class</a>
                 <a class="navbar-item" href="/venues/new">List a new  venue</a>
                 <a class="navbar-item" href="/logout">Logout</a>

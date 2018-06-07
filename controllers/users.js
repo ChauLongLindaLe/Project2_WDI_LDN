@@ -1,5 +1,14 @@
 const User = require('../models/user');
 
+// function usersIndex(req,res){
+//   User
+//     .find()
+//     .exec()
+//     .then(user =>{
+//       res.render(`/users/${user.id}`);
+//     });
+// }
+
 function usersNew( req, res){
   res.render('sessions/new');
 
@@ -47,6 +56,7 @@ function usersDelete(req,res){
 
 
 module.exports = {
+  // index: usersIndex,
   new: usersNew,
   show: usersShow ,
   create: usersCreate,

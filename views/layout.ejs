@@ -23,23 +23,11 @@
   </head>
   <body>
     <%- include ./partials/_navbar %>
-
-    <% if(locals.isHomepage) { %>
-      <section class="hero is-info is-large">
-        <div class="hero-body">
+      <section class="section">
           <div class="container">
           <%- body %>
-          </div>
         </div>
       </section>
       <%- include ./partials/_footer %>
-    <%} else { %>
-    <section class="section">
-      <div class="container">
-        <%- body %>
-      </div>
-    </section>
-    <%} %>
-    <%- include ./partials/_footer %>
   </body>
 </html>

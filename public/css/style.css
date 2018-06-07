@@ -14,10 +14,8 @@
   margin-top: 30%;
 }
 
-#ourReviews{
-  background-image: url('https://i.imgur.com/mTmOzHJ.jpg');
-  background-repeat: no-repeat;
-}
+
+
 
 /* .background-black-grunge{
   background-image: url('https://i.imgur.com/mud8pHH.png');
@@ -27,9 +25,21 @@
   width: 775px;
 
 } */
+#ourReviews{
+  background-image: url('https://i.imgur.com/mTmOzHJ.jpg');
+  background-repeat: no-repeat;
+}
 
 #ourClasses{
   background-image: url('https://i.imgur.com/RnXZDqO.jpg');
+}
+
+#physical{
+background-image: url('https://i.imgur.com/zkkPazQ.jpg');
+}
+
+#menDoYoga{
+background-image: url('https://i.imgur.com/zjX7w83.jpg');
 }
 
 .classesOn{
@@ -55,10 +65,6 @@ errorContainer {
 
 .footer{
   display: flex;
-}
-
-.social-links li{
-
 }
 
 .social-links {
@@ -104,6 +110,16 @@ page-intro{
   margin: -35px 0;
   padding: 0;
 }
+
+
+.page-splash-classes{
+  background-image: url('https://i.imgur.com/9wP1BQv.jpg');
+  width: 900px;
+  height: 500px;
+  background-size: cover;
+
+}
+
 
 
 @media query {
