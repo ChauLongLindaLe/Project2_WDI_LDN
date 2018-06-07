@@ -1,14 +1,23 @@
-<section class="hero is-medium has-carousel">
-  <div class="carousel" data-flickity='{ "autoPlay": true }'>
-    <div class="carousel-cell">
-      <img src="https://i.imgur.com/RnXZDqO.jpg" alt="yoga">
-      <div class="container has-text-right">
+<section class="hero is-large is-mobile has-carousel">
+  <div class="carousel" data-flickity='{ "autoPlay": true, "wrapAround": true }'>
+    <div class="carousel-cell" id="ourClasses">
+      <div class="container is-half has-text-centered homeInfo ">
+        <div class="background-black-grunge">
+
         <h1 class="title has-text-white has-text-centered is-size-1">Our classes</h1>
         <h2 class="subtitle has-text-white has-text-centered is-size-5 secondary-font">Check out all of our aerial gymastics classes on this week in London.</h2>
+        <a href="/venues/" class="button is-white is-focused">Venues</a>
+        </div>
       </div>
     </div>
-    <div class="carousel-cell">
-      <img src="https://i.imgur.com/mTmOzHJ.jpg" alt="people about to do yoga">
+    <div class="carousel-cell" id="ourReviews">
+      <div class="container is-half has-text-centered reviewInfo">
+        <div class="background-black-grunge">
+        <h1 class="title has-text-white has-text-centered is-size-1">Want to leave a review?</h1>
+        <h2 class="subtitle has-text-white has-text-centered is-size-5 secondary-font">Click on any of our classes or venues to leave your thoughts!</h2>
+        <a href="/venues/" class="button is-white is-focused">Classes</a>
+        </div>
+      </div>
     </div>
     <div class="carousel-cell">
       <img src="https://i.imgur.com/zkkPazQ.jpg" alt="woman doing yoga">
@@ -17,21 +26,25 @@
       <img src="https://i.imgur.com/zjX7w83.jpg" alt="man doing yoga">
     </div>
   </div>
-  <div class="hero-body has-text-centered">
-    <div class="columns is-mobile is-centered">
-      <div class="column is-half is-narrow">
-        <div class="field has-addons">
-          <div class="control is-expanded">
-            <input class="input" type="text" placeholder="Sign up to our newsletter">
-          </div>
-          <div class="control">
-            <a class="button is-info">
-              Submit
-            </a>
-          </div>
-        </div>
-      </div>
+  <div class="columns">
+    <div class="classesOn column is-12">
+      Classes
+      <a href="#">Join Us</a>
     </div>
   </div>
+  <div class="columns">
+    <div class="venuesOn column is-half is-offset-one-half">
+      Check out our venues
+    </div>
+  </div>
+  <div class="registerWithUs columns">
+    <div class="column">
+      Register with us today!
+    </div>
+  </div>
+  <div class="columns">
+    <div class="blog column">
+      Blog
 
-</section>
+    </div>
+  </div>

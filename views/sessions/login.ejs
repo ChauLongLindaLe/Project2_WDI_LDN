@@ -1,16 +1,20 @@
 <div class="container">
   <h2 class="title is-2">Login</h2>
   <form action="/login" method="POST">
-    <div class='input-field'>
-      <input type="email" name="email" id="email" required>
+    <div class='field'>
       <label for="email_field">Email</label>
+      <div class="control">
+        <input type="email" name="email" id="email" placeholder="e.g. Linda Le" required>
+      </div>
     </div>
-    <div class='input-field'>
-      <input type="password" name="password" id="password" required>
+    <div class='field'>
       <label for="password_field">Password</label>
+      <div class="control">
+        <input type="password" name="password" id="password" required placeholder="e.g. lindale@gmail.com">
+      </div>
     </div>
     <div>
-      <button class="button is-danger">Login</button>
+      <button class="button is-success">Login</button>
     </div>
   </form>
 </div>

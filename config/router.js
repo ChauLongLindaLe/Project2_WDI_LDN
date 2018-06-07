@@ -71,11 +71,10 @@ router.route('/venues/:id/edit')
   .get(venues.edit);
 
 router.route('/venues/:id/comments')
-  .post(venues.commentsCreate);
+  .post(venues.createComment);
 
 router.route('/venues/:id/comments/:commentId')
-  .delete(venues.commentsDelete);
-
+  .delete(venues.deleteComment);
 
 
 //global error catcher

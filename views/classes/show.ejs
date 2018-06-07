@@ -9,8 +9,8 @@
  <% if(klass.comments.length > 0){ %>
    <% klass.comments.forEach(comments => { %>
     <% if(comment.isOwnedBy(locals.currentUser)) { %>
-      <img src="<%= comments.creator.profilePicture %>" alt="Profile picture of <%= comments.creator.name%>">
-      <%= comments.creator.name %>
+      <img src="<%= comments.user.profilePicture %>" alt="Profile picture of <%= comments.user.name%>">
+      <%= comments.user.name %>
       <%= comments.comment %>
       <% } %>
       <% }) %>
@@ -21,7 +21,7 @@
         <form action="/classes/<%= klass._id %>" method="POST">
               <textarea name="comment" id="comment"</textarea>
               <label for="comment">Write your review here</label>
-             <input type="hidden" name="creator" value="<%= user._id %>">
+             <input type="hidden" name="user" value="<%= user._id %>">
             <button class="button is-danger">Submit</button>
           </div>
         </form>

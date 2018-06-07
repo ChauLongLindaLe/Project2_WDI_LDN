@@ -12,7 +12,7 @@ function venuesIndex(req, res) {
 function venuesShow(req, res, next) {
   Venue
     .findById(req.params.id)
-    .populate('comments.creator')
+    .populate('comments.user')
     .then(venue => {
       if(!venue){
         return res.render('pages/404');
@@ -22,6 +22,7 @@ function venuesShow(req, res, next) {
     .then(venue => {
       Class.find({'venue': venue.name})
         .then(klasses => {
+          console.log(venue.comments);
           res.render('venues/show', { venue: venue , klasses: klasses});
         });
     })
@@ -93,6 +94,6 @@ module.exports = {
   edit: venuesEdit,
   update: venuesUpdate,
   delete: venuesDelete,
-  commentsCreate: venuesCreateComment,
-  commentsDelete: venuesDeleteComment
+  createComment: venuesCreateComment,
+  deleteComment: venuesDeleteComment
 };

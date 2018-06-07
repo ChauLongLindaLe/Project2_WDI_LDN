@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const commentSchema = new mongoose.Schema({
   subject: {type: String ,minlength: 3},
   comment: {type: String, minlength: 3},
-  creator: {type: mongoose.Schema.Types.ObjectId, ref: 'User'}
+  user: {type: mongoose.Schema.Types.ObjectId, ref: 'User'}
 }, {
   timestamps: true
 });

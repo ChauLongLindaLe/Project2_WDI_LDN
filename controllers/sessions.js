@@ -20,7 +20,7 @@ function sessionsCreate(req, res) {
 
 //logout function - regenerate session cookie
 function sessionsDelete(req, res){
-  return req.session.regenerate(() => res.redirect('/sessions/logout'));
+  return req.session.regenerate(() => res.redirect('sessions/logout'));
 }
 
 

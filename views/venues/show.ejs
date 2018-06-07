@@ -37,7 +37,7 @@
             </div>
           </div>
           <div class="field">
-              <textarea class="textarea" name="content" placeholder="Write a review..."></textarea>
+              <textarea class="textarea" name="comment" placeholder="Write a review..."></textarea>
               <div class="control">
             </div>
           </div>
@@ -54,15 +54,16 @@
             <li>
             <div class="box">
             <% if(comment.isOwnedBy(locals.currentUser)) { %>
-              <form class="delete" method="POST" action="/venues/<%= venue._id %>/comments/<%= comment._id %>">
-                <input type="hidden" name="_method" value="DELETE">
-                <button class="button is-primary">Delete</button>
-              </form>
+              <p><%= comment %></p>
+              // <form class="delete" method="POST" action="/venues/<%= venue._id %>/comments/<%= comment._id %>">
+              //   <input type="hidden" name="_method" value="DELETE">
+              //   <button class="button is-primary">Delete</button>
+              // </form>
               <% } %>
               <article class="media">
                 <div class="media-left">
                   <figure class="image is-64x64">
-                    <img src="<%= comment.user.profile %>" alt="<%= comment.user.name   %>">
+                    // <img src="<%= comment.user.profilePicture %>" alt="<%= comment.user.name   %>">
                   </figure>
                 </div>
                 <div class="media-content">

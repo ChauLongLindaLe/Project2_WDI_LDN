@@ -13,7 +13,7 @@ function classesIndex(req,res){
 function classesShow(req,res,next){
   Class
     .findById(req.params.id)
-    .populate('comments.creator')
+    .populate('comments.user')
     .exec()
     .then(klass => {
       if(!klass){
@@ -78,13 +78,15 @@ function classesDelete(req,res){
 function classesCreateComment(req, res, next) {
   req.body.user = req.currentUser;
   Class
+  //find class by id
     .findById(req.params.id)
     .then(klass => {
+      //push comment into body of the class page
       klass.comments.push(req.body);
       return klass.save();
     })
     .then(klass => res.redirect(`/classes/${klass._id}`))
-    .catch(next);
+    .catch(next);//catch errors
 }
 
 function classesDeleteComment(req, res, next) {

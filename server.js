@@ -52,8 +52,8 @@ app.use((req, res, next) => {
     // .populate({path: 'classes', populate: {path: 'creator'}})
     // .exec()
     .then((user) =>{
-      req.session.userId._id = user._id;
-      res.locals.user = user;
+      req.currentUser = user._id;
+      res.locals.currentUser = user;
       res.locals.isLoggedIn = true;
       next();
     });

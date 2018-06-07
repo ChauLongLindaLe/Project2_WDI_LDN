@@ -3,16 +3,17 @@ const mongoose = require('mongoose');
 const commentSchema = new mongoose.Schema({
   subject: {type: String ,minlength: 3},
   comment: {type: String, minlength: 3},
-  creator: {type: mongoose.Schema.Types.ObjectId, ref: 'User'}
+  user: {type: mongoose.Schema.Types.ObjectId, ref: 'User'}
 }, {
   timestamps: true
 });
 
 commentSchema.methods.isOwnedBy = function(user) {
+  //if comment owned by user and matches obj id
   return this.user._id && user._id.equals(this.user._id);
 };
 
-//put min lengths in for each and max length
+//schema expectactions
 const classSchema = new mongoose.Schema({
   name: { type: String, required: true},
   venue: {type: String, required: true},

@@ -4,15 +4,75 @@
   font-family:'Montserrat', sans-serif;
 }
 
-errorContainer {
-  background: url('https://i.redd.it/7bumjq8v4eaz.jpg');
+.homeInfo, .reviewInfo{
+  padding: 20px 40px 30px 40px;
+  background: rgba(0, 0, 0, 0.5);
+  display: block;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30%;
 }
+
+#ourReviews{
+  background-image: url('https://i.imgur.com/mTmOzHJ.jpg');
+  background-repeat: no-repeat;
+}
+
+/* .background-black-grunge{
+  background-image: url('https://i.imgur.com/mud8pHH.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 291px;
+  width: 775px;
+
+} */
+
+#ourClasses{
+  background-image: url('https://i.imgur.com/RnXZDqO.jpg');
+}
+
+.classesOn{
+  background-color: #0800a9;
+}
+
+.venuesOn{
+  background-color: #d3bd01;
+}
+
+.registerWithUs{
+  background-color: #f00;
+}
+
+
+.blog{
+  background-color: #009936;
+}
+errorContainer {
+  background-image: url('https://i.redd.it/7bumjq8v4eaz.jpg');
+}
+
 
 .footer{
   display: flex;
-  list-style-type: none;
+}
+
+.social-links li{
 
 }
+
+.social-links {
+  list-style:none;
+  margin:0;
+  padding:0;
+  margin-bottom:30px;
+}
+
+.social-links li{
+  display:inline-block;
+}
+
+
 page-intro{
   font-family: 'A-Love-of-Thunder';
   font-size: 2.857em;
@@ -31,6 +91,10 @@ page-intro{
   box-shadow: 0 0 0 5px #19F;
 }
 
+.carousel-cell {
+  width: 100%;
+  min-height: 760px;
+}
 .button.is-danger:hover {
   transition: 0.4s;
   background-color: #EB7A96;
@@ -41,17 +105,14 @@ page-intro{
   padding: 0;
 }
 
-.carousel-cell {
-  width: 100%;
-  min-height: 760px;
-  counter-increment: carousel-cell;
+
+@media query {
+.flickity-page-dots{
+    display: none;
+  }
+
+.flickity-button{
+    display: none;
 }
 
-.carousel-cell:before {
-  display: block;
-  text-align: center;
-  content: counter(carousel-cell);
-  line-height: 200px;
-  font-size: 80px;
-  color: white;
 }
