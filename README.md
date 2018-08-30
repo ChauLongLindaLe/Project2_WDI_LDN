@@ -1,4 +1,6 @@
-# Flyer's Island - WDI 34 Project 2
+![image](https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png)
+# GA WDI-34 Project 2
+## 'Flyer's Island'
 
 [Heroku Link](https://flyers-island.herokuapp.com/)
 
